@@ -1,6 +1,9 @@
+import loadMenu from "./menu";
+import clearContentBox from ".";
+
 function loadHome() {
     const content = document.querySelector("#content");
-
+    
     const bodyImage = document.createElement('div');
     bodyImage.classList.add('homeBodyImage');
     content.appendChild(bodyImage);
@@ -24,35 +27,6 @@ function loadHome() {
     infoBox.appendChild(infoBtn);
     container2.appendChild(infoBox);
 
-    const header = document.createElement('div');
-    header.classList.add('header');
-
-    const logo = document.createElement('div')
-    logo.innerHTML = 'Hokkaido';
-    logo.classList.add('logo');
-    header.appendChild(logo);
-
-    const headerBtns = document.createElement('div');
-    headerBtns.classList.add('header-btns')
-
-    const homeBtn = document.createElement('button')
-    homeBtn.id = 'home-btn';
-    homeBtn.innerHTML = 'Home';
-    headerBtns.appendChild(homeBtn);
-
-    const menuBtn = document.createElement('button')
-    menuBtn.id = 'menu-btn';
-    menuBtn.innerHTML = 'Menu';
-    headerBtns.appendChild(menuBtn);
-
-    const contactBtn = document.createElement('button')
-    contactBtn.id = 'contact-btn';
-    contactBtn.innerHTML = 'Contact';
-    headerBtns.appendChild(contactBtn);
-
-    header.appendChild(headerBtns);
-    content.appendChild(header);
-
     const body2 = document.createElement('div');
     body2.id = 'home-body2';
     content.appendChild(body2); 
@@ -66,6 +40,11 @@ function loadHome() {
     body2Body.id = 'home-body2-body';
 
     body2.append(body2Header, body2Body);
+
+    infoBtn.addEventListener('click', () => {
+        clearContentBox();
+        loadMenu();
+    })
 }
 
 export default loadHome;
